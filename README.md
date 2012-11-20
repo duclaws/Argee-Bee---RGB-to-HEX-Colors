@@ -1,1 +1,1 @@
-![Alt text](http://imgur.com/0YPMQ "Optional title")
+![Alt text](http://i.imgur.com/0YPMQ.png "Optional title")
