@@ -28,6 +28,7 @@
 
 BOOL boolOn;
 int incrementValue= 5;
+float timeInterval = 1.0;
 
 NSString * hex;
 NSString* redVal;
@@ -51,6 +52,8 @@ UIImageView *ipadBG ;
        
         //Deal with rotation for iPad, programatically set it up
         ipadBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+        [self willAnimateRotationToInterfaceOrientation:0 duration:0];
+        
         [ipadBG setImage:[UIImage imageNamed:@"WideiPad.jpg"]];
         [self.view addSubview:ipadBG];
         [self.view sendSubviewToBack: ipadBG];
@@ -82,7 +85,7 @@ UIImageView *ipadBG ;
     [super viewDidLoad];
    
     //set up timer
-    [NSTimer scheduledTimerWithTimeInterval:1.0
+    [NSTimer scheduledTimerWithTimeInterval:timeInterval
                                      target:self
                                    selector:@selector(targetMethod:)
                                    userInfo:nil
@@ -109,7 +112,7 @@ UIImageView *ipadBG ;
     [SliderAlpha setMaximumValue:100];
     [SliderAlpha setValue:100];
     
-    // This makes the sliders call the -valueChanged: method when the user interacts with it.
+    // This makes the sliders call the valueChanged method anytime the user interacts with a slider target.
     
     [SliderOne addTarget:self
                action:@selector(valueChanged:)
@@ -210,7 +213,7 @@ UIImageView *ipadBG ;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 - (IBAction)switchAction:(id)sender {
@@ -233,11 +236,12 @@ UIImageView *ipadBG ;
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
         toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
     {
-         NSLog(@"Rotated:");
+         NSLog(@"Rotate Wide");
         ipadBG.frame=CGRectMake(0, 0, 1024, 768);
     }
     else
     {
+        NSLog(@"Rotate Portrait");
       ipadBG.frame=CGRectMake(0, 0, 768, 1024);
     }
     
