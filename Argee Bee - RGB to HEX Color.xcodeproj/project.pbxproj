@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E001771165C467700CCB882 /* WideiPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E001770165C467700CCB882 /* WideiPad.jpg */; };
 		4E5F6ADA165492D2003E81B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5F6AD9165492D2003E81B3 /* UIKit.framework */; };
 		4E5F6ADC165492D2003E81B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5F6ADB165492D2003E81B3 /* Foundation.framework */; };
 		4E5F6ADE165492D2003E81B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5F6ADD165492D2003E81B3 /* CoreGraphics.framework */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E001770165C467700CCB882 /* WideiPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideiPad.jpg; sourceTree = "<group>"; };
 		4E5F6AD5165492D2003E81B3 /* Argee Bee - RGB to HEX Color.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Argee Bee - RGB to HEX Color.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5F6AD9165492D2003E81B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E5F6ADB165492D2003E81B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +74,7 @@
 		4E5F6ACA165492D2003E81B3 = {
 			isa = PBXGroup;
 			children = (
+				4E001770165C467700CCB882 /* WideiPad.jpg */,
 				4EC5C8CE165B80F2008344B4 /* Classic-Linen.jpg */,
 				4E5F6AFE1654ABFF003E81B3 /* Aluminum-White.png */,
 				4EE73AD01655BE8A009B2F00 /* bannerRotatorThumb.png */,
@@ -195,6 +198,7 @@
 				4EE73AD11655BE8A009B2F00 /* bannerRotatorThumb.png in Resources */,
 				4EC5C8CB165B7DCA008344B4 /* ViewControlleriPhone4.xib in Resources */,
 				4EC5C8CF165B80F2008344B4 /* Classic-Linen.jpg in Resources */,
+				4E001771165C467700CCB882 /* WideiPad.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

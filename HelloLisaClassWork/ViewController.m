@@ -34,7 +34,7 @@ NSString* redVal;
 NSString* greenVal;
 NSString* blueVal;
 
-
+UIImageView *ipadBG ;
 
 @synthesize viewColor;
 
@@ -45,7 +45,16 @@ NSString* blueVal;
     {
         //iPad Non Retina
         NSLog(@"Call your iPad xib file");
+       
+        //load the correct xib, ViewControlleriPad.xib
         [[NSBundle mainBundle] loadNibNamed: @"ViewControlleriPad" owner: self options: nil];
+       
+        //Deal with rotation for iPad, programatically set it up
+        ipadBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 1024, 768)];
+        [ipadBG setImage:[UIImage imageNamed:@"WideiPad.jpg"]];
+        [self.view addSubview:ipadBG];
+        [self.view sendSubviewToBack: ipadBG];
+        
     }
     else 
     {
@@ -215,6 +224,26 @@ NSString* blueVal;
     
     }
     
+    
+}
+- (void)willAnimateRotationToInterfaceOrientation:
+(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
+{
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+    {
+         NSLog(@"Rotated:");
+        ipadBG.frame=CGRectMake(0, 0, 1024, 768);
+    }
+    else
+    {
+      ipadBG.frame=CGRectMake(0, 0, 768, 1024);
+    }
+    
+    
+    
+   
     
 }
 @end
