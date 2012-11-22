@@ -18,9 +18,16 @@
 @property (strong, nonatomic) IBOutlet UISlider *SliderAlpha;
 @property (strong, nonatomic) IBOutlet UISwitch *switchAuto;
 - (IBAction)switchAction:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UILabel *txtHex;
 @property (strong, nonatomic) IBOutlet UILabel *lblR;
 @property (strong, nonatomic) IBOutlet UILabel *lblG;
 @property (strong, nonatomic) IBOutlet UILabel *lblB;
+
+@property (strong, nonatomic) IBOutlet UILabel *txtR;
+@property (strong, nonatomic) IBOutlet UILabel *txtG;
+@property (strong, nonatomic) IBOutlet UILabel *txtB;
+@property (strong, nonatomic) IBOutlet UILabel *txtAlpha;
+@property (strong, nonatomic) IBOutlet UILabel *txtAuto;
 
 @end
