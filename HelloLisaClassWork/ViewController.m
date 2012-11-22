@@ -2,8 +2,8 @@
 //  ViewController.m
 //  HelloLisaClassWork
 //
-//  Created by JST Pro on 11/14/12.
-//  Copyright (c) 2012 JST Pro. All rights reserved.
+//  Created by Joshua Sharfi on 11/14/12.
+//  Copyright (c) 2012 JST Technology LLC. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -62,10 +62,17 @@ CGRect swtxt;
 
 CGRect viewBox;
 
+NSMutableArray *saveColors;
 
 
 - (void)viewDidLoad
 {
+    saveColors = [[NSUserDefaults standardUserDefaults] objectForKey:@"hexColors"];
+    
+    if (!saveColors)
+        saveColors = [[NSMutableArray alloc] init];
+    
+    NSLog(@" THESE ARE THE SAVED COLORS: %@\n", saveColors);
     
      /////////////////////////iPad or iPhone?/////////////////////////////////////
     device = [[UIScreen mainScreen] bounds].size;
@@ -168,15 +175,17 @@ CGRect viewBox;
     SliderOne.continuous = YES;
     [SliderOne setMinimumValue:0.0];
     [SliderOne setMaximumValue:255];
+   // [SliderOne setThumbTintColor:[UIColor redColor]];
     
     SliderTwo.continuous = YES;
     [SliderTwo setMinimumValue:0.0];
     [SliderTwo setMaximumValue:255];
+   // [SliderTwo setThumbTintColor:[UIColor greenColor]];
     
     SliderThree.continuous = YES;
     [SliderThree setMinimumValue:0.0];
     [SliderThree setMaximumValue:255];
-    
+    //[SliderThree setThumbTintColor:[UIColor blueColor]];
     
     SliderAlpha.continuous = YES;
     [SliderAlpha setMinimumValue:20.0];
@@ -236,10 +245,15 @@ CGRect viewBox;
     {
         NSLog(@"Audo Still on...\n");
         
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        
         //increment value is defined above
         SliderOne.value=SliderOne.value+incrementValue;
         SliderTwo.value=SliderTwo.value+incrementValue;
         SliderThree.value=SliderThree.value+incrementValue;
+        
+        [UIView commitAnimations];
         
         //looping
         if (SliderOne.value==255)
@@ -259,6 +273,7 @@ CGRect viewBox;
 
 - (void)valueChanged:(UISlider*)sender
 {
+
     NSLog(@"\nRed: %.0f\nGreen: %.0f\nBlue: %.0f\n", SliderOne.value , SliderTwo.value, SliderThree.value);
     
     //Set color of View
@@ -387,4 +402,28 @@ CGRect viewBox;
     }
     
 }
+- (IBAction)btnSave:(id)sender {
+    [saveColors addObject:@{
+        @"r" : [NSNumber numberWithFloat:SliderOne.value / 255],
+        @"g" : [NSNumber numberWithFloat:SliderTwo.value / 255],
+        @"b" : [NSNumber numberWithFloat:SliderThree.value / 255],
+        @"a" : [NSNumber numberWithFloat:SliderAlpha.value / 100]}];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:saveColors forKey:@"hexColors"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
+-(NSString*) saveFilePath
+
+{
+
+    NSString* path = [NSString stringWithFormat:@"%@%@",
+                      [[NSBundle mainBundle] resourcePath],
+                      @"savedColors.plist"];
+    return path;
+
+}
+
+
 @end

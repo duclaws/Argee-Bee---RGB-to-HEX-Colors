@@ -30,4 +30,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *txtAlpha;
 @property (strong, nonatomic) IBOutlet UILabel *txtAuto;
 
+- (IBAction)btnSave:(id)sender;
 @end
